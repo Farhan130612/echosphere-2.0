@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ECHOSPHERE 2.0 — A Night of Live Music. Mon 02 Nov 2026, 6 PM at Openair Auditorium, SUIET Mukka. Najran Kabeer × Benji Beats." />
+  <meta name="theme-color" content="#050508" />
+  <title>ECHOSPHERE 2.0 — Live Music Concert | SUIET</title>
+
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet" />
+
+  <!-- Scripts (inline head to avoid FOUC) -->
+  <script src="js/lenis.min.js"></script>
+  <script src="js/gsap.min.js"></script>
+  <script src="js/ScrollTrigger.min.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css?v=3.3" />
+</head>
+<body>
+
+  <!-- ═══════ NAV ═══════ -->
+  <nav class="nav" id="mainNav">
+    <a href="#" class="nav-logo">ECHO<span>SPHERE</span><em>2.0</em></a>
+    <div class="nav-links">
+      <a href="#event">Event</a>
+      <a href="#lineup">Lineup</a>
+      <button class="sound-toggle-btn" id="soundToggle" aria-label="Toggle Concert Sound">
+        <span class="sound-bars">
+          <span></span><span></span><span></span>
+        </span>
+        <span class="sound-label" id="soundLabel">SOUND: OFF</span>
+      </button>
+      <a href="#register" class="nav-cta">Get Pass</a>
+    </div>
+    <div class="nav-mobile-actions">
+      <button class="sound-toggle-btn sound-toggle-mob" id="soundToggleMob" aria-label="Toggle Sound">
+        <span class="sound-bars">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile nav overlay -->
+  <div class="mob-nav" id="mobNav">
+    <button class="mob-nav-close" id="mobNavClose">✕</button>
+    <a href="#event" class="mob-nav-link" data-close-nav>Event</a>
+    <a href="#lineup" class="mob-nav-link" data-close-nav>Lineup</a>
+    <a href="#register" class="mob-nav-link" data-close-nav>Get Pass</a>
+  </div>
+
+  <!-- ═══════ HERO — SCROLL-SCRUB CANVAS ═══════ -->
+  <section class="scrub-wrap" id="scrubWrap">
+
+    <!-- sticky stage -->
+    <div class="scrub-stage" id="scrubStage">
+
+      <!-- canvas layer -->
+      <canvas class="hero-canvas" id="heroCanvas"></canvas>
+
+      <!-- Gradient vignette -->
+      <div class="vignette"></div>
+
+      <!-- top eyebrow text that fades in -->
+      <div class="hero-eyebrow" id="heroEyebrow">
+        <span class="eyebrow-tag">Mon · 02 Nov 2026 · 6 PM</span>
+        <span class="eyebrow-venue">Openair Auditorium · SUIET, Mukka</span>
+      </div>
+
+      <!-- Main hero headline — reveals on scroll -->
+      <div class="hero-headline" id="heroHeadline">
+        <h1 class="hero-h1">
+          <span class="h1-echo">ECHO</span><span class="h1-sphere">SPHERE</span>
+        </h1>
+        <p class="hero-sub">A Night of Live Music</p>
+        <div class="hero-version"><span>2</span><span class="dot">.</span><span>0</span></div>
+      </div>
+
+      <!-- bottom-center CTA card -->
+      <div class="hero-card" id="heroCard">
+        <div class="hero-card-inner">
+          <div class="card-meta">
+            <span class="card-meta-tag">A NIGHT OF</span>
+            <strong class="card-meta-title">ECHOSPHERE <em>2.0</em></strong>
+          </div>
+          <div class="card-info">
+            <span>02 NOV 2026</span>
+            <span class="sep">·</span>
+            <span>6 PM ONWARDS</span>
+            <span class="sep">·</span>
+            <span>SUIET, MUKKA</span>
+          </div>
+          <a href="#register" class="btn-gold hero-register-btn">
+            <span>REGISTER NOW</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- scroll cue -->
+      <div class="scroll-cue" id="scrollCue">
+        <div class="scroll-cue-line"></div>
+        <span>SCROLL</span>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+    </div>
+  </section>
+
+  <!-- ═══════ SECTION: EVENT ═══════ -->
+  <section class="section section-event" id="event">
+    <div class="container">
+
+      <div class="section-header" data-reveal>
+        <span class="section-tag">Live Concert Experience</span>
+        <h2 class="section-h2">The <span class="gold">Event</span></h2>
+        <p class="section-p">A premier student-led music experience uniting artists, youth, and sound at the Openair Auditorium, SUIET Mukka.</p>
+      </div>
+
+      <div class="stats-grid" data-reveal-stagger>
+        <div class="stat-card" data-stat>
+          <div class="stat-number" data-count="1200">0</div>
+          <div class="stat-suffix">+</div>
+          <div class="stat-label">Attended Last Edition</div>
+        </div>
+        <div class="stat-card stat-card--accent" data-stat>
+          <div class="stat-number">1K–1.5K</div>
+          <div class="stat-suffix">+</div>
+          <div class="stat-label">Expected Footfall</div>
+        </div>
+        <div class="stat-card" data-stat>
+          <div class="stat-number">LIVE</div>
+          <div class="stat-label">Music &amp; Entertainment</div>
+        </div>
+      </div>
+
+      <div class="detail-row" data-reveal>
+        <div class="detail-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>Mon, 02 Nov 2026 · 6 PM Onwards</span>
+        </div>
+        <div class="detail-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Openair Auditorium, SUIET Campus, Mukka, Surathkal</span>
+        </div>
+        <div class="detail-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <span>Hosted by WebFlow × Rotaract Club</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════ MARQUEE ═══════ -->
+  <div class="marquee-strip">
+    <div class="marquee-inner">
+      <span>ECHOSPHERE 2.0</span><span class="msep">✦</span>
+      <span>02 NOV 2026</span><span class="msep">✦</span>
+      <span>SUIET MUKKA</span><span class="msep">✦</span>
+      <span>LIVE MUSIC</span><span class="msep">✦</span>
+      <span>NAJRAN KABEER</span><span class="msep">✦</span>
+      <span>BENJI BEATS</span><span class="msep">✦</span>
+      <span>ECHOSPHERE 2.0</span><span class="msep">✦</span>
+      <span>02 NOV 2026</span><span class="msep">✦</span>
+      <span>SUIET MUKKA</span><span class="msep">✦</span>
+      <span>LIVE MUSIC</span><span class="msep">✦</span>
+      <span>NAJRAN KABEER</span><span class="msep">✦</span>
+      <span>BENJI BEATS</span><span class="msep">✦</span>
+    </div>
+  </div>
+
+  <!-- ═══════ SECTION: LINEUP ═══════ -->
+  <section class="section section-lineup" id="lineup">
+    <div class="container">
+
+      <div class="section-header" data-reveal>
+        <span class="section-tag">Headlining Artists</span>
+        <h2 class="section-h2">The <span class="gold">Lineup</span></h2>
+        <p class="section-p">Two powerhouse performers. One unforgettable night.</p>
+      </div>
+
+      <div class="lineup-grid">
+
+        <div class="lineup-card" data-lineup-card>
+          <div class="lineup-img-wrap">
+            <img src="assets/lineup1.jpg" alt="Najran Kabeer" loading="lazy" />
+            <div class="lineup-overlay"></div>
+            <div class="lineup-number">01</div>
+          </div>
+          <div class="lineup-info">
+            <h3 class="lineup-name">Najran <span class="gold">Kabeer</span></h3>
+            <p class="lineup-role">Live on Stage</p>
+            <div class="lineup-genre">
+              <span>Hip Hop</span><span>R&amp;B</span><span>Live Vocals</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lineup-card lineup-card--right" data-lineup-card>
+          <div class="lineup-img-wrap">
+            <img src="assets/lineup2.jpg" alt="Benji Beats" loading="lazy" />
+            <div class="lineup-overlay"></div>
+            <div class="lineup-number">02</div>
+          </div>
+          <div class="lineup-info">
+            <h3 class="lineup-name">Benji <span class="gold">Beats</span></h3>
+            <p class="lineup-role">Live on Stage</p>
+            <div class="lineup-genre">
+              <span>Electronic</span><span>Trap</span><span>DJ Set</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ SECTION: REGISTER ═══════ -->
+  <section class="section section-register" id="register">
+
+    <!-- blurred bg from canvas -->
+    <div class="reg-bg">
+      <img src="assets/back_view_still.webp" alt="" aria-hidden="true" class="reg-bg-img" />
+      <div class="reg-bg-overlay"></div>
+    </div>
+
+    <div class="container">
+      <div class="reg-layout">
+
+        <div class="reg-left" data-reveal>
+          <span class="section-tag">Limited Passes</span>
+          <h2 class="section-h2">Get Your <span class="gold">Pass</span></h2>
+          <p class="section-p">Secure your entry for ECHOSPHERE 2.0. Fill in your details below. Passes are issued on a first-come-first-served basis.</p>
+          <ul class="reg-perks">
+            <li><span class="perk-icon">✦</span>Live performances — Najran Kabeer &amp; Benji Beats</li>
+            <li><span class="perk-icon">✦</span>Mon, 02 Nov 2026 · 6 PM Onwards</li>
+            <li><span class="perk-icon">✦</span>Openair Auditorium, SUIET Mukka</li>
+            <li><span class="perk-icon">✦</span>Hosted by WebFlow × Rotaract Club</li>
+          </ul>
+        </div>
+
+        <!-- PASS BOOKING CARD (MATCHING USER SPECIFICATION) -->
+        <div class="form-card booking-card" id="formCard" data-reveal>
+          <div class="booking-header">
+            <div>
+              <h3 class="booking-title">EchoSphere 2026 Passes</h3>
+              <p class="booking-subtitle">Najran Kabeer × Benjamin Solomon • Srinivas University Mukka</p>
+            </div>
+          </div>
+
+          <!-- TICKET TIER BOX -->
+          <div class="ticket-tier-box">
+            <div class="tier-top">
+              <div class="tier-info">
+                <div class="tier-title-row">
+                  <h4 class="tier-name">Early Bird Ticket</h4>
+                  <span class="badge-discount" id="badgeDiscount">Save ₹150</span>
+                </div>
+                <div class="tier-pricing">
+                  <span class="tier-price" id="tierPrice">₹349</span>
+                  <span class="tier-strike" id="tierStrike">₹499</span>
+                  <span class="tier-dot">•</span>
+                  <span class="tier-access">Arena Access</span>
+                </div>
+              </div>
+              <div class="tier-stepper">
+                <button type="button" class="stepper-btn" id="stepMinus" aria-label="Decrease quantity">−</button>
+                <span class="stepper-count" id="ticketQty">1</span>
+                <button type="button" class="stepper-btn" id="stepPlus" aria-label="Increase quantity">+</button>
+              </div>
+            </div>
+            <div class="tier-urgency">
+              <span class="urgency-dot"></span>
+              <span class="urgency-text">196/200 Booked • <strong class="gold">Only 4 left at this rate</strong></span>
+            </div>
+          </div>
+
+          <!-- ATTENDEE FORM -->
+          <div class="attendee-sec-header">
+            <span class="sec-label">ATTENDEE INFORMATION</span>
+            <span class="sec-sub">Official Pass sent via Email</span>
+          </div>
+
+          <form id="registerForm" novalidate>
+            <div class="contact-step-badge">
+              <span class="step-num">1</span>
+              <span>Primary Contact</span>
+            </div>
+
+            <div class="field-group">
+              <input type="text" id="f-name" name="name" placeholder="Full Name" autocomplete="name" required />
+              <span class="field-err" id="err-name"></span>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group">
+                <input type="email" id="f-email" name="email" placeholder="Email Address" autocomplete="email" required />
+                <span class="field-err" id="err-email"></span>
+              </div>
+              <div class="field-group">
+                <input type="tel" id="f-phone" name="phone" placeholder="Mobile Phone (10 digits)" maxlength="10" autocomplete="tel" required />
+                <span class="field-err" id="err-phone"></span>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <input type="text" id="f-college" name="college" placeholder="College / Institution (e.g. SUIET / MIT / NITK)" autocomplete="organization" />
+              <span class="field-err" id="err-college"></span>
+            </div>
+
+            <!-- CHECKOUT SUMMARY & ACTION BAR -->
+            <div class="checkout-bar">
+              <div class="checkout-total-wrap">
+                <div class="total-line">
+                  <span class="total-val" id="totalVal">₹349</span>
+                  <span class="total-strike" id="totalStrike">₹499</span>
+                </div>
+                <span class="saving-pill" id="savingPill">Saving ₹150 on 1 pass</span>
+              </div>
+
+              <div class="checkout-btn-wrap">
+                <button type="submit" class="btn-checkout" id="submitBtn">
+                  <span id="btnPayText">PAY NOW • ₹349</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+                <div class="gateway-tag">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  <span>Cashfree Gateway • UPI, Cards &amp; NetBanking</span>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- TICKET PASS (shown after submit) -->
+        <div class="ticket-pass" id="ticketPass" style="display:none;" data-reveal>
+          <div class="ticket-pass-inner">
+            <div class="ticket-header">
+              <div class="ticket-logo">ECHOSPHERE <span>2.0</span></div>
+              <div class="ticket-badge">CONFIRMED</div>
+            </div>
+            <div class="ticket-body">
+              <div class="ticket-field">
+                <span class="tf-l">ATTENDEE</span>
+                <span class="tf-v" id="tk-name">—</span>
+              </div>
+              <div class="ticket-field">
+                <span class="tf-l">INSTITUTION</span>
+                <span class="tf-v" id="tk-college">—</span>
+              </div>
+              <div class="ticket-field">
+                <span class="tf-l">DATE &amp; TIME</span>
+                <span class="tf-v">Mon, 02 Nov 2026 · 6 PM</span>
+              </div>
+              <div class="ticket-field">
+                <span class="tf-l">VENUE</span>
+                <span class="tf-v">Openair Auditorium, SUIET Mukka</span>
+              </div>
+              <div class="ticket-field">
+                <span class="tf-l">PASS TIER</span>
+                <span class="tf-v" id="tk-tier">Early Bird • Arena Access</span>
+              </div>
+              <div class="ticket-field">
+                <span class="tf-l">QUANTITY &amp; TOTAL</span>
+                <span class="tf-v" id="tk-qty-total">1 Pass (₹349 Verified)</span>
+              </div>
+              <div class="ticket-field">
+                <span class="tf-l">PASS ID</span>
+                <span class="tf-v" id="tk-pass">ECHO-2026-0000</span>
+              </div>
+            </div>
+            <div class="ticket-qr-row">
+              <canvas class="ticket-qr" id="ticketQr" width="130" height="130"></canvas>
+              <div class="ticket-qr-meta">
+                <p>Present this QR at the entrance gate</p>
+                <p class="qr-sub">A digital confirmation has been recorded</p>
+              </div>
+            </div>
+            <div class="ticket-perforated"></div>
+            <button class="btn-outline reset-btn" id="resetBtn">Register Another</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">ECHOSPHERE <span>2.0</span></span>
+        <p>A Live Music Concert Experience</p>
+      </div>
+      <div class="footer-info">
+        <p><strong>Srinivas University Institute of Engineering &amp; Technology (SUIET)</strong></p>
+        <p>Mukka, Surathkal, Mangalore, Karnataka</p>
+        <p>Hosted by <strong>WebFlow Club × Rotaract Club</strong></p>
+      </div>
+      <div class="footer-copy">
+        <p>&copy; 2026 SUIET &amp; ECHOSPHERE 2.0. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky floating CTA -->
+  <a href="#register" class="sticky-cta" id="stickyCta">Get Pass</a>
+
+  <!-- Background Concert Beat Audio -->
+  <audio id="bgAudio" loop preload="auto" src="assets/concert_beat.mp3"></audio>
+
+  <!-- JS -->
+  <script src="js/main.js?v=4.0"></script>
+
+</body>
+</html>

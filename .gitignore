@@ -1,0 +1,31 @@
+# Node & dependencies
+node_modules/
+npm-debug.log*
+
+# Test profiles & browser data
+test_profile*
+temp_profile*
+verify_profile*
+test_shots/
+test_reg_shots/
+verified_shots/
+test_mouse_wheel/
+test_nav_trans/
+test_pin_check/
+test_ticket_profile*
+test_wheel_steps/
+
+# Python test scripts & caches
+__pycache__/
+*.pyc
+test_and_capture.py
+test_mouse_wheel.py
+verify_views.py
+verify_registration_and_audio.py
+test_mobile_card.py
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -15,14 +15,13 @@ test_pin_check/
 test_ticket_profile*
 test_wheel_steps/
 
+test_shots*/
+test_*
+
 # Python test scripts & caches
 __pycache__/
 *.pyc
-test_and_capture.py
-test_mouse_wheel.py
-verify_views.py
-verify_registration_and_audio.py
-test_mobile_card.py
+*.py
 
 # OS / Editor files
 .DS_Store
